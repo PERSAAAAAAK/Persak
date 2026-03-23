@@ -1,5 +1,10 @@
 const CLIENT_ID = "fafd1ec7c0934680869f0da9b962537b";
 const REDIRECT_URI = window.location.origin + window.location.pathname;
+const CACHE_KEY = "persak_release";
+const CACHE_TTL_RENDER = 60 * 60 * 1000;       // 1 ora: dopo quanto fare refresh in background
+const CACHE_TTL_AUTH   = 24 * 60 * 60 * 1000;  // 24 ore: dopo quanto forzare re-auth
+
+// ── PKCE ────────────────────────────────────────────────────────────────────
 
 function generateCodeVerifier(length = 128) {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
@@ -50,7 +55,7 @@ async function exchangeCodeForToken(code) {
         localStorage.setItem("spotify_token_expiry", Date.now() + data.expires_in * 1000);
         localStorage.removeItem("pkce_verifier");
     }
-    return data.access_token;
+    return data.access_token || null;
 }
 
 function getStoredToken() {
@@ -62,13 +67,36 @@ function getStoredToken() {
     return null;
 }
 
+// ── CACHE RELEASE ────────────────────────────────────────────────────────────
+
+function getCachedRelease() {
+    try {
+        const raw = localStorage.getItem(CACHE_KEY);
+        if (!raw) return null;
+        const { release, timestamp } = JSON.parse(raw);
+        if (Date.now() - timestamp > CACHE_TTL_AUTH) {
+            localStorage.removeItem(CACHE_KEY);
+            return null;
+        }
+        return { release, timestamp };
+    } catch {
+        return null;
+    }
+}
+
+function setCachedRelease(release) {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ release, timestamp: Date.now() }));
+}
+
+// ── SPOTIFY API ──────────────────────────────────────────────────────────────
+
 async function getArtistId(token, name) {
     const res = await fetch(
         `https://api.spotify.com/v1/search?q=${encodeURIComponent(name)}&type=artist&limit=1`,
         { headers: { Authorization: `Bearer ${token}` } }
     );
     const data = await res.json();
-    return data.artists.items[0]?.id;
+    return data.artists?.items[0]?.id;
 }
 
 async function getLatestRelease(token, artistId) {
@@ -81,26 +109,9 @@ async function getLatestRelease(token, artistId) {
     return all.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))[0];
 }
 
-async function render() {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
+// ── RENDERING ────────────────────────────────────────────────────────────────
 
-    let token = getStoredToken();
-
-    if (code) {
-        token = await exchangeCodeForToken(code);
-        window.history.replaceState({}, "", window.location.pathname);
-    }
-
-    if (!token) {
-        await redirectToAuth();
-        return;
-    }
-
-    const artistId = await getArtistId(token, "Persak");
-    const release = await getLatestRelease(token, artistId);
-    if (!release) return;
-
+function renderRelease(release) {
     const container = document.querySelector(".ultima-uscita");
     const date = new Date(release.release_date);
     const dateStr = date.toLocaleDateString("it-IT", { day: "2-digit", month: "long", year: "numeric" });
@@ -124,6 +135,50 @@ async function render() {
             </div>
         </a>
     `;
+}
+
+async function fetchAndCacheRelease(token) {
+    const artistId = await getArtistId(token, "Persak");
+    if (!artistId) return;
+    const release = await getLatestRelease(token, artistId);
+    if (!release) return;
+    setCachedRelease(release);
+    renderRelease(release);
+}
+
+// ── MAIN ─────────────────────────────────────────────────────────────────────
+
+async function render() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get("code");
+
+    // 1. Mostra subito il contenuto dalla cache se disponibile
+    const cached = getCachedRelease();
+    if (cached) {
+        renderRelease(cached.release);
+    }
+
+    // 2. Gestisci il callback PKCE (code in URL)
+    let token = getStoredToken();
+    if (code) {
+        window.history.replaceState({}, "", window.location.pathname);
+        token = await exchangeCodeForToken(code);
+    }
+
+    // 3. Se non c'è token e la cache è scaduta o assente → forza re-auth
+    if (!token) {
+        if (!cached) {
+            await redirectToAuth();
+        }
+        // Se c'è cache ma non token: mostriamo i dati cached, non forziamo il login
+        return;
+    }
+
+    // 4. Se il token è valido e i dati sono vecchi (> 1 ora) o assenti → refresh in background
+    const needsRefresh = !cached || (Date.now() - cached.timestamp > CACHE_TTL_RENDER);
+    if (needsRefresh) {
+        fetchAndCacheRelease(token);
+    }
 }
 
 render();
