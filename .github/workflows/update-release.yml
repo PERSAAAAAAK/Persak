@@ -10,6 +10,8 @@ on:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -35,6 +37,7 @@ jobs:
 
           echo "${ALBUMS} ${SINGLES}" | jq -s '
             (.[0] + .[1])
+            | map(select(. != null))
             | sort_by(.release_date)
             | reverse
             | .[0]

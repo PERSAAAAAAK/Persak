@@ -2,7 +2,7 @@ async function render() {
     const res = await fetch("data/release.json");
     if (!res.ok) return;
     const release = await res.json();
-    if (!release) return;
+    if (!release || !release.name) return;
 
     const container = document.querySelector(".ultima-uscita");
     const date = new Date(release.release_date);
