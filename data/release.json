@@ -1,1 +1,45 @@
-{}
+{
+  "album_type": "single",
+  "total_tracks": 1,
+  "is_playable": true,
+  "external_urls": {
+    "spotify": "https://open.spotify.com/album/37WxAtsHgjkLi62JFqVP9i"
+  },
+  "href": "https://api.spotify.com/v1/albums/37WxAtsHgjkLi62JFqVP9i",
+  "id": "37WxAtsHgjkLi62JFqVP9i",
+  "images": [
+    {
+      "url": "https://i.scdn.co/image/ab67616d0000b2738beb30da1973ae79ac8165b7",
+      "height": 640,
+      "width": 640
+    },
+    {
+      "url": "https://i.scdn.co/image/ab67616d00001e028beb30da1973ae79ac8165b7",
+      "height": 300,
+      "width": 300
+    },
+    {
+      "url": "https://i.scdn.co/image/ab67616d000048518beb30da1973ae79ac8165b7",
+      "height": 64,
+      "width": 64
+    }
+  ],
+  "name": "Danza en la sombra",
+  "release_date": "2025-12-04",
+  "release_date_precision": "day",
+  "type": "album",
+  "uri": "spotify:album:37WxAtsHgjkLi62JFqVP9i",
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2Eo4Yaukt9d6dnZrY5hQKi"
+      },
+      "href": "https://api.spotify.com/v1/artists/2Eo4Yaukt9d6dnZrY5hQKi",
+      "id": "2Eo4Yaukt9d6dnZrY5hQKi",
+      "name": "Ciro y los Persas",
+      "type": "artist",
+      "uri": "spotify:artist:2Eo4Yaukt9d6dnZrY5hQKi"
+    }
+  ],
+  "album_group": "single"
+}
