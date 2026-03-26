@@ -2,7 +2,7 @@ name: Update Spotify Release
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # ogni giorno alle 06:00 UTC
+    - cron: "1 * * * *"   # ogni ora al minuto 01
   push:
     branches: [main]
   workflow_dispatch:       # eseguibile manualmente dalla tab Actions
@@ -20,28 +20,21 @@ jobs:
           CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         run: |
+          if [ -f .env ]; then
+            export $(grep -v '^#' .env | xargs)
+          fi
+
           TOKEN=$(curl -s -X POST https://accounts.spotify.com/api/token \
             -H "Content-Type: application/x-www-form-urlencoded" \
             -d "grant_type=client_credentials&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}" \
             | jq -r '.access_token')
 
-          ARTIST_ID=$(curl -s "https://api.spotify.com/v1/search?q=Persak&type=artist&limit=1" \
-            -H "Authorization: Bearer ${TOKEN}" \
-            | jq -r '.artists.items[0].id')
+          ARTIST_ID="6WLZ4Ff7FplLaiU0odCGSd"
 
-          ALBUMS=$(curl -s "https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=album&market=IT&limit=5" \
-            -H "Authorization: Bearer ${TOKEN}" | jq '.items')
-
-          SINGLES=$(curl -s "https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=single&market=IT&limit=5" \
-            -H "Authorization: Bearer ${TOKEN}" | jq '.items')
-
-          echo "${ALBUMS} ${SINGLES}" | jq -s '
-            (.[0] + .[1])
-            | map(select(. != null))
-            | sort_by(.release_date)
-            | reverse
-            | .[0]
-          ' > data/release.json
+          curl -s "https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=album,single&market=IT&limit=20" \
+            -H "Authorization: Bearer ${TOKEN}" | jq --arg id "$ARTIST_ID" '
+              .items | map(select(any(.artists[]; .id == $id))) | .[0]
+            ' > data/release.json
 
       - name: Commit if changed
         run: |
