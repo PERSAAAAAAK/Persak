@@ -9,6 +9,15 @@ body {
     overscroll-behavior: none;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #272624;
+    pointer-events: none;
+    z-index: 0;
+}
+
 body::after {
     content: '';
     position: fixed;
