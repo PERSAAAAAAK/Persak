@@ -10,6 +10,7 @@ async function render() {
     container.innerHTML = `
         <a href="${release.external_urls.spotify}" target="_blank" rel="noopener">
             <div class="release">
+                <div class="release__label">Ultima uscita</div>
                 <img src="${release.images[0].url}" alt="${release.name}" />
                 <div class="release__titolo">${release.name}</div>
                 <div class="release__artista">${artista}</div>

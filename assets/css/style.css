@@ -72,6 +72,11 @@ header img {
     text-decoration: none;
 }
 
+.release {
+    position: relative;
+    z-index: 2;
+}
+
 .release img {
     display: block;
     width: 100%;
