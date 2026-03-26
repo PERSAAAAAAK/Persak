@@ -1,45 +1,45 @@
 {
-  "album_type": "single",
-  "total_tracks": 1,
+  "album_type": "album",
+  "total_tracks": 14,
   "is_playable": true,
   "external_urls": {
-    "spotify": "https://open.spotify.com/album/37WxAtsHgjkLi62JFqVP9i"
+    "spotify": "https://open.spotify.com/album/1to8aMbQM30Pao5awSetm6"
   },
-  "href": "https://api.spotify.com/v1/albums/37WxAtsHgjkLi62JFqVP9i",
-  "id": "37WxAtsHgjkLi62JFqVP9i",
+  "href": "https://api.spotify.com/v1/albums/1to8aMbQM30Pao5awSetm6",
+  "id": "1to8aMbQM30Pao5awSetm6",
   "images": [
     {
-      "url": "https://i.scdn.co/image/ab67616d0000b2738beb30da1973ae79ac8165b7",
+      "url": "https://i.scdn.co/image/ab67616d0000b273947527356e37b1a9bcb3b2ce",
       "height": 640,
       "width": 640
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d00001e028beb30da1973ae79ac8165b7",
+      "url": "https://i.scdn.co/image/ab67616d00001e02947527356e37b1a9bcb3b2ce",
       "height": 300,
       "width": 300
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d000048518beb30da1973ae79ac8165b7",
+      "url": "https://i.scdn.co/image/ab67616d00004851947527356e37b1a9bcb3b2ce",
       "height": 64,
       "width": 64
     }
   ],
-  "name": "Danza en la sombra",
-  "release_date": "2025-12-04",
+  "name": "MIXTAPE",
+  "release_date": "2025-08-06",
   "release_date_precision": "day",
   "type": "album",
-  "uri": "spotify:album:37WxAtsHgjkLi62JFqVP9i",
+  "uri": "spotify:album:1to8aMbQM30Pao5awSetm6",
   "artists": [
     {
       "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2Eo4Yaukt9d6dnZrY5hQKi"
+        "spotify": "https://open.spotify.com/artist/6WLZ4Ff7FplLaiU0odCGSd"
       },
-      "href": "https://api.spotify.com/v1/artists/2Eo4Yaukt9d6dnZrY5hQKi",
-      "id": "2Eo4Yaukt9d6dnZrY5hQKi",
-      "name": "Ciro y los Persas",
+      "href": "https://api.spotify.com/v1/artists/6WLZ4Ff7FplLaiU0odCGSd",
+      "id": "6WLZ4Ff7FplLaiU0odCGSd",
+      "name": "Persak",
       "type": "artist",
-      "uri": "spotify:artist:2Eo4Yaukt9d6dnZrY5hQKi"
+      "uri": "spotify:artist:6WLZ4Ff7FplLaiU0odCGSd"
     }
   ],
-  "album_group": "single"
+  "album_group": "album"
 }
