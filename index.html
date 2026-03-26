@@ -11,6 +11,15 @@
         <link rel="stylesheet" href="assets/css/style.css" />
     </head>
     <body>
+        <svg width="0" height="0" style="position:absolute">
+            <defs>
+                <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.25" numOctaves="5" stitchTiles="stitch"/>
+                    <feColorMatrix type="saturate" values="0"/>
+                    <feBlend in="SourceGraphic" mode="multiply"/>
+                </filter>
+            </defs>
+        </svg>
         <div class="container">
             <header>
                 <img src="assets/img/f51cb459-5065-4b55-adf9-8ce5cd7eef71-Photoroom.png" alt="Persak" />
@@ -22,10 +31,6 @@
                 <a href="https://www.tiktok.com/@persak.bandini?_r=1&_t=ZN-94sKAn7JjD4" target="_blank" rel="noopener">TikTok</a>
             </nav>
         </div>
-        <div class="noise-overlay" style="background-image: url('assets/img/noise/stucco_white_neat_plaster_texture.jpg')"></div>
-        <div class="noise-overlay" style="background-image: url('assets/img/noise/012.png')"></div>
-        <div class="noise-overlay" style="background-image: url('assets/img/noise/030.png'); opacity: 0.4;"></div>
-        <div class="noise-overlay" style="background-image: url('assets/img/noise/067.png')"></div>
 
         <script src="assets/js/main.js" defer></script>
     </body>
