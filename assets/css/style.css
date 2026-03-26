@@ -88,6 +88,8 @@ header img {
 }
 
 .release__label {
+    display: flex;
+    justify-content: space-between;
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
