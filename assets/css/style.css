@@ -142,3 +142,16 @@ header img {
 .social a:hover {
     opacity: 0.8;
 }
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #e9e6df;
+    opacity: 0.3;
+    position: relative;
+    z-index: 2;
+}
