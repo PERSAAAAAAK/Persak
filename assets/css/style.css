@@ -2,15 +2,22 @@ html {
     background-color: #272624;
 }
 
+.bg {
+    position: fixed;
+    inset: 0;
+    background: #272624;
+    z-index: 0;
+}
+
 body {
     background-color: #272624;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     position: relative;
     overscroll-behavior: none;
 }
 
 body::before {
-    content: '';
+    content: "";
     position: fixed;
     inset: 0;
     background: #272624;
@@ -19,7 +26,7 @@ body::before {
 }
 
 body::after {
-    content: '';
+    content: "";
     position: fixed;
     inset: 0;
     filter: url(#noise);
@@ -70,6 +77,16 @@ header img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+}
+
+.release__label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #e9e6df;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
 }
 
 .release__titolo {
