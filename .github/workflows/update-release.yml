@@ -33,7 +33,7 @@ jobs:
 
           curl -s "https://api.spotify.com/v1/artists/${ARTIST_ID}/albums?include_groups=album,single&market=IT&limit=20" \
             -H "Authorization: Bearer ${TOKEN}" | jq --arg id "$ARTIST_ID" '
-              .items | map(select(any(.artists[]; .id == $id))) | .[0]
+              .items | map(select(any(.artists[]; .id == $id))) | sort_by(.release_date) | reverse | .[0]
             ' > data/release.json
 
       - name: Commit if changed

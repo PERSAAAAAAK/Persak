@@ -1,5 +1,6 @@
 body {
     background-color: #272624;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .noise-overlay {
@@ -40,55 +41,31 @@ header img {
 .ultima-uscita a {
     display: block;
     text-decoration: none;
-    color: #1a1a1a;
 }
 
-.giornale {
-    background-color: #e9e6df;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.giornale__testata {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    opacity: 0.6;
-}
-
-.giornale__separatore {
-    height: 2px;
-    background: #1a1a1a;
-}
-
-.giornale__titolo {
-    font-size: 2rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-    line-height: 1;
-}
-
-.giornale__foto img {
+.release img {
     display: block;
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
 }
 
-.giornale__footer {
-    font-size: 0.6rem;
+.release__titolo {
+    font-size: 1.2rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
+    color: #e9e6df;
+    margin-top: 0.6rem;
     text-align: center;
+}
+
+.release__artista {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #e9e6df;
     opacity: 0.5;
+    margin-top: 0.2rem;
+    text-align: center;
 }
 
 .social {
