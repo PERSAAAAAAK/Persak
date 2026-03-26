@@ -1,34 +1,34 @@
 {
-  "album_type": "album",
-  "total_tracks": 14,
+  "album_type": "single",
+  "total_tracks": 1,
   "is_playable": true,
   "external_urls": {
-    "spotify": "https://open.spotify.com/album/1to8aMbQM30Pao5awSetm6"
+    "spotify": "https://open.spotify.com/album/1mipWMpGrkTGvEjtP3261M"
   },
-  "href": "https://api.spotify.com/v1/albums/1to8aMbQM30Pao5awSetm6",
-  "id": "1to8aMbQM30Pao5awSetm6",
+  "href": "https://api.spotify.com/v1/albums/1mipWMpGrkTGvEjtP3261M",
+  "id": "1mipWMpGrkTGvEjtP3261M",
   "images": [
     {
-      "url": "https://i.scdn.co/image/ab67616d0000b273947527356e37b1a9bcb3b2ce",
+      "url": "https://i.scdn.co/image/ab67616d0000b27338eba1bb497b43e6a5433a6c",
       "height": 640,
       "width": 640
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d00001e02947527356e37b1a9bcb3b2ce",
+      "url": "https://i.scdn.co/image/ab67616d00001e0238eba1bb497b43e6a5433a6c",
       "height": 300,
       "width": 300
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d00004851947527356e37b1a9bcb3b2ce",
+      "url": "https://i.scdn.co/image/ab67616d0000485138eba1bb497b43e6a5433a6c",
       "height": 64,
       "width": 64
     }
   ],
-  "name": "MIXTAPE",
-  "release_date": "2025-08-06",
+  "name": "CLICK!",
+  "release_date": "2026-03-20",
   "release_date_precision": "day",
   "type": "album",
-  "uri": "spotify:album:1to8aMbQM30Pao5awSetm6",
+  "uri": "spotify:album:1mipWMpGrkTGvEjtP3261M",
   "artists": [
     {
       "external_urls": {
@@ -39,7 +39,17 @@
       "name": "Persak",
       "type": "artist",
       "uri": "spotify:artist:6WLZ4Ff7FplLaiU0odCGSd"
+    },
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2YYiyxIraQIGFYQUImQzk0"
+      },
+      "href": "https://api.spotify.com/v1/artists/2YYiyxIraQIGFYQUImQzk0",
+      "id": "2YYiyxIraQIGFYQUImQzk0",
+      "name": "lazyyy",
+      "type": "artist",
+      "uri": "spotify:artist:2YYiyxIraQIGFYQUImQzk0"
     }
   ],
-  "album_group": "album"
+  "album_group": "single"
 }
