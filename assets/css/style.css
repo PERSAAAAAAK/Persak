@@ -2,6 +2,7 @@ body {
     background-color: #272624;
     font-family: 'DM Sans', sans-serif;
     position: relative;
+    overscroll-behavior: none;
 }
 
 body::after {
