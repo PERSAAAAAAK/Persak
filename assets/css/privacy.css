@@ -1,0 +1,75 @@
+header a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.privacy-content {
+    padding: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.privacy-content h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #e9e6df;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+}
+
+.privacy-content .updated {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #e9e6df;
+    opacity: 0.4;
+    margin-bottom: 2rem;
+}
+
+.privacy-content section {
+    margin-bottom: 2rem;
+}
+
+.privacy-content h2 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #e9e6df;
+    opacity: 0.5;
+    margin-bottom: 0.6rem;
+}
+
+.privacy-content p {
+    font-size: 0.9rem;
+    color: #e9e6df;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+.privacy-content a {
+    color: #e9e6df;
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+.privacy-content a:hover {
+    opacity: 1;
+}
+
+footer a {
+    color: #e9e6df;
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+footer p + p {
+    margin-top: 0.5rem;
+}
