@@ -1,34 +1,34 @@
 {
-  "album_type": "single",
-  "total_tracks": 1,
+  "album_type": "album",
+  "total_tracks": 10,
   "is_playable": true,
   "external_urls": {
-    "spotify": "https://open.spotify.com/album/1mipWMpGrkTGvEjtP3261M"
+    "spotify": "https://open.spotify.com/album/5vFgVhTJM3VD9qNe1UyNtr"
   },
-  "href": "https://api.spotify.com/v1/albums/1mipWMpGrkTGvEjtP3261M",
-  "id": "1mipWMpGrkTGvEjtP3261M",
+  "href": "https://api.spotify.com/v1/albums/5vFgVhTJM3VD9qNe1UyNtr",
+  "id": "5vFgVhTJM3VD9qNe1UyNtr",
   "images": [
     {
-      "url": "https://i.scdn.co/image/ab67616d0000b27338eba1bb497b43e6a5433a6c",
+      "url": "https://i.scdn.co/image/ab67616d0000b27340e3a280680dee950f93dae0",
       "height": 640,
       "width": 640
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d00001e0238eba1bb497b43e6a5433a6c",
+      "url": "https://i.scdn.co/image/ab67616d00001e0240e3a280680dee950f93dae0",
       "height": 300,
       "width": 300
     },
     {
-      "url": "https://i.scdn.co/image/ab67616d0000485138eba1bb497b43e6a5433a6c",
+      "url": "https://i.scdn.co/image/ab67616d0000485140e3a280680dee950f93dae0",
       "height": 64,
       "width": 64
     }
   ],
-  "name": "CLICK!",
-  "release_date": "2026-03-20",
+  "name": "ILLUMINAZIONE",
+  "release_date": "2026-04-21",
   "release_date_precision": "day",
   "type": "album",
-  "uri": "spotify:album:1mipWMpGrkTGvEjtP3261M",
+  "uri": "spotify:album:5vFgVhTJM3VD9qNe1UyNtr",
   "artists": [
     {
       "external_urls": {
@@ -39,17 +39,7 @@
       "name": "Persak",
       "type": "artist",
       "uri": "spotify:artist:6WLZ4Ff7FplLaiU0odCGSd"
-    },
-    {
-      "external_urls": {
-        "spotify": "https://open.spotify.com/artist/2YYiyxIraQIGFYQUImQzk0"
-      },
-      "href": "https://api.spotify.com/v1/artists/2YYiyxIraQIGFYQUImQzk0",
-      "id": "2YYiyxIraQIGFYQUImQzk0",
-      "name": "lazyyy",
-      "type": "artist",
-      "uri": "spotify:artist:2YYiyxIraQIGFYQUImQzk0"
     }
   ],
-  "album_group": "single"
+  "album_group": "album"
 }
